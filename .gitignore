@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Banco de dados
+*.db
+
+# Ambiente virtual
+venv/
+env/
+ENV/
+
+# VS Code
+.vscode/
+
+# Arquivos temporários
+*.tmp
+*.temp

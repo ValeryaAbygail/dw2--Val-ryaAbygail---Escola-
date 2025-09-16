@@ -19,6 +19,15 @@ app.add_middleware(
 
 # Database initialization
 def init_db():
+    try:
+        # Remove o banco de dados se existir
+        import os
+        if os.path.exists('escola.db'):
+            os.remove('escola.db')
+            print("Banco de dados anterior removido.")
+    except:
+        print("Erro ao tentar remover banco de dados anterior.")
+
     conn = sqlite3.connect('escola.db')
     c = conn.cursor()
     
@@ -45,6 +54,7 @@ def init_db():
     
     conn.commit()
     conn.close()
+    print("Banco de dados inicializado com sucesso.")
 
 # Models
 class TurmaBase(BaseModel):
@@ -116,31 +126,57 @@ async def get_alunos(search: Optional[str] = None, turma_id: Optional[int] = Non
 
 @app.post("/alunos", response_model=Aluno)
 async def create_aluno(aluno: AlunoBase):
-    conn = sqlite3.connect('escola.db')
-    c = conn.cursor()
-    
-    if aluno.turma_id:
-        # Check if turma exists and has capacity
-        c.execute("SELECT capacidade FROM turmas WHERE id = ?", (aluno.turma_id,))
-        turma = c.fetchone()
-        if not turma:
-            raise HTTPException(status_code=404, detail="Turma não encontrada")
+    try:
+        conn = sqlite3.connect('escola.db')
+        c = conn.cursor()
         
-        c.execute("SELECT COUNT(*) FROM alunos WHERE turma_id = ?", (aluno.turma_id,))
-        current_students = c.fetchone()[0]
-        if current_students >= turma[0]:
-            raise HTTPException(status_code=400, detail="Turma está cheia")
-    
-    c.execute('''
-        INSERT INTO alunos (nome, data_nascimento, email, status, turma_id)
-        VALUES (?, ?, ?, ?, ?)
-    ''', (aluno.nome, aluno.data_nascimento, aluno.email, aluno.status, aluno.turma_id))
-    
-    aluno_id = c.lastrowid
-    conn.commit()
-    conn.close()
-    
-    return {**aluno.dict(), "id": aluno_id}
+        # Validações adicionais
+        if len(aluno.nome) < 3 or len(aluno.nome) > 80:
+            raise HTTPException(status_code=400, detail="Nome deve ter entre 3 e 80 caracteres")
+        
+        if aluno.data_nascimento > (date.today() - timedelta(days=5*365)):
+            raise HTTPException(status_code=400, detail="O aluno deve ter pelo menos 5 anos")
+        
+        if aluno.status not in ['ativo', 'inativo']:
+            raise HTTPException(status_code=400, detail="Status deve ser 'ativo' ou 'inativo'")
+        
+        if aluno.turma_id:
+            # Check if turma exists and has capacity
+            c.execute("SELECT id, nome, capacidade FROM turmas WHERE id = ?", (aluno.turma_id,))
+            turma = c.fetchone()
+            if not turma:
+                raise HTTPException(status_code=404, detail="Turma não encontrada")
+            
+            # Contar apenas alunos ativos na turma
+            c.execute("""
+                SELECT COUNT(*) 
+                FROM alunos 
+                WHERE turma_id = ? AND status = 'ativo'
+            """, (aluno.turma_id,))
+            current_students = c.fetchone()[0]
+            
+            print(f"DEBUG - Turma {turma[1]}: Capacidade={turma[2]}, Alunos ativos={current_students}")
+            
+            if current_students >= turma[2]:
+                raise HTTPException(
+                    status_code=400, 
+                    detail=f"Turma {turma[1]} está cheia. Capacidade: {turma[2]}, Alunos ativos: {current_students}"
+                )
+        
+        c.execute('''
+            INSERT INTO alunos (nome, data_nascimento, email, status, turma_id)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (aluno.nome, aluno.data_nascimento, aluno.email, aluno.status, aluno.turma_id))
+        
+        aluno_id = c.lastrowid
+        conn.commit()
+        conn.close()
+        
+        return {**aluno.dict(), "id": aluno_id}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao criar aluno: {str(e)}")
 
 @app.put("/alunos/{aluno_id}", response_model=Aluno)
 async def update_aluno(aluno_id: int, aluno: AlunoBase):

@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (!validateEmail(data.email)) {
+        if (data.email && !validateEmail(data.email)) {
             alert('Email inválido.');
             return;
         }
@@ -146,11 +146,11 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             await api.createAluno(data);
             hideModal();
-            loadStudents();
+            await loadStudents();
             e.target.reset();
         } catch (error) {
             console.error('Error creating student:', error);
-            alert('Erro ao criar aluno');
+            alert(error.message || 'Erro ao criar aluno');
         }
     };
 

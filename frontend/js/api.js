@@ -16,7 +16,10 @@ const api = {
             },
             body: JSON.stringify(data),
         });
-        if (!response.ok) throw new Error('Erro ao criar aluno');
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.detail || 'Erro ao criar aluno');
+        }
         return response.json();
     },
 
