@@ -1,0 +1,112 @@
+Banco de dados anterior removido.
+Banco de dados inicializado com sucesso.
+INFO:     127.0.0.1:59175 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59184 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59175 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59272 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59309 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59309 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58115 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58115 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58117 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58117 - "OPTIONS /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58117 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58175 - "POST /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58175 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58176 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58176 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58176 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58176 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57823 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57823 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57825 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57825 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57825 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57825 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57825 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57825 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50790 - "POST /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58121 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58121 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58986 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58986 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64617 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64617 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59881 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59881 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59881 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59881 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59881 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59881 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59881 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59881 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59881 - "OPTIONS /alunos HTTP/1.1" 200 OK
+DEBUG - Turma 2BTI: Capacidade=45, Alunos ativos=0
+INFO:     127.0.0.1:59881 - "POST /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59881 - "GET /alunos HTTP/1.1" 200 OK
+DEBUG - Turma 2BTI: Capacidade=45, Alunos ativos=1
+INFO:     127.0.0.1:59899 - "POST /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59899 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49986 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49986 - "OPTIONS /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49986 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49987 - "POST /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49987 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63368 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63368 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57717 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57717 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57717 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57717 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57717 - "GET /turmas HTTP/1.1" 200 OK
+DEBUG - Turma 1B: Capacidade=5, Alunos ativos=0
+INFO:     127.0.0.1:58978 - "POST /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58978 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58978 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58996 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58996 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58997 - "POST /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58997 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59028 - "GET /turmas HTTP/1.1" 200 OK
+DEBUG - Turma 8B: Capacidade=2, Alunos ativos=0
+INFO:     127.0.0.1:59039 - "POST /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59039 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59039 - "GET /turmas HTTP/1.1" 200 OK
+DEBUG - Turma 8B: Capacidade=2, Alunos ativos=1
+INFO:     127.0.0.1:59064 - "POST /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59064 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59064 - "GET /turmas HTTP/1.1" 200 OK
+DEBUG - Turma 8B: Capacidade=2, Alunos ativos=2
+INFO:     127.0.0.1:57070 - "POST /alunos HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57079 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57079 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57347 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65152 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53452 - "GET /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53469 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53469 - "GET /turmas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53487 - "GET /turmas HTTP/1.1" 200 OK
+DEBUG - Turma 2BTI: Capacidade=45, Alunos ativos=2
+INFO:     127.0.0.1:53501 - "POST /alunos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53501 - "GET /alunos HTTP/1.1" 200 OK
