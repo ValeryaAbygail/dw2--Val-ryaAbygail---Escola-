@@ -165,9 +165,10 @@ nav {
     display: none;
     justify-content: center;
     align-items: center;
+    z-index: 10000; /* ensure overlay sits above other content */
 }
 
-.modal-overlay[style*="display: block"] {
+.modal-overlay.open {
     display: flex;
 }
 
@@ -179,6 +180,7 @@ nav {
     width: 100%;
     max-width: 500px;
     position: relative;
+    z-index: 10001; /* ensure modal is above overlay and other elements */
 }
 
 .modal h2 {

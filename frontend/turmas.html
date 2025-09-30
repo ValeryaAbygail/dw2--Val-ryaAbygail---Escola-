@@ -67,23 +67,36 @@
                 return;
             }
 
-            // Carregar turmas
+            // Carregar turmas e contar alunos matriculados em cada uma
             async function loadClasses() {
                 try {
-                    const turmas = await fetchWithErrorHandling(`${API_BASE_URL}/turmas`);
-                    renderClasses(turmas);
+                    // Buscar turmas e alunos em paralelo
+                    const [turmas, alunos] = await Promise.all([
+                        fetchWithErrorHandling(`${API_BASE_URL}/turmas`),
+                        fetchWithErrorHandling(`${API_BASE_URL}/alunos`),
+                    ]);
+
+                    // Conta alunos por turma_id
+                    const counts = {};
+                    (alunos || []).forEach(a => {
+                        if (a.turma_id !== undefined && a.turma_id !== null) {
+                            counts[a.turma_id] = (counts[a.turma_id] || 0) + 1;
+                        }
+                    });
+
+                    renderClasses(turmas, counts);
                 } catch (error) {
                     console.error('Error:', error);
                 }
             }
 
-            // Renderizar turmas na tabela
-            function renderClasses(turmas) {
+            // Renderizar turmas na tabela incluindo a contagem X/capacidade
+            function renderClasses(turmas, counts = {}) {
                 classesTableBody.innerHTML = turmas.map(turma => `
                     <tr>
                         <td>${turma.nome}</td>
                         <td>${turma.capacidade}</td>
-                        <td>0/${turma.capacidade}</td>
+                        <td>${counts[turma.id] ?? 0}/${turma.capacidade}</td>
                     </tr>
                 `).join('');
             }

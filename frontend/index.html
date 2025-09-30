@@ -79,6 +79,7 @@
         <div class="modal" role="dialog" aria-labelledby="modal-title">
             <h2 id="modal-title">Novo Aluno</h2>
             <form id="student-form">
+                <input type="hidden" id="student-id" name="id">
                 <div class="form-group">
                     <label for="nome">Nome*</label>
                     <input type="text" id="nome" name="nome" required minlength="3" maxlength="80">
@@ -112,7 +113,12 @@
         </div>
     </div>
 
-    <script src="js/api.js"></script>
-    <script src="js/app.js"></script>
+    <script>
+        // Fallback stubs to avoid ReferenceError if inline handlers run before app.js is executed
+        window.editStudent = window.editStudent || function(id){ console.warn('editStudent called before app loaded', id); };
+        window.deleteStudent = window.deleteStudent || function(id){ console.warn('deleteStudent called before app loaded', id); };
+    </script>
+    <script src="js/api.js?v=20250930.1"></script>
+    <script src="js/app.js?v=20250930.1"></script>
 </body>
 </html>
